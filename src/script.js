@@ -340,26 +340,34 @@ import { CSS3DRenderer, CSS3DObject } from "three/examples/jsm/renderers/CSS3DRe
 				// Lê os botões do gamepad (exemplo: botão 0 para ação)
 				if (gamepad.buttons[0].pressed) {
 					//sunLight.color.set(Math.random() * 0xffffff);
-					for(let i = 0; i < bone.length; i++){
-						bone[i].rotation.x = Math.random() * 1.5;
-						bone[i].rotation.y = Math.random() * 1.5;
-						//bone[i].rotation.z = Math.random() * 2.0;
+					for(let i = 0; i < 8; i++){
+						bone[i].rotation.x = THREE.MathUtils.randFloat(-1.0,1.0);
+						bone[i].rotation.y = THREE.MathUtils.randFloat(-1.0,1.0);
+						bone[i].rotation.z = THREE.MathUtils.randFloat(-1.0,1.0);
 					//bone[5].rotation.z = Math.cos(t)*0.8;
 				   }
 					
 				}
 
 
-				if(bone[1]){
+				if(bone){
+
+					
+					for(let i = 8; i < bone.length; i++){
+						bone[i].rotation.x = xAxis;
+						bone[i].rotation.y = yAxis;
+						bone[i].rotation.z = xAxis1;
+					//bone[5].rotation.z = Math.cos(t)*0.8;
+				   }
 					
 					//cabeça/tronco
-					bone[1].rotation.x = xAxis;
-					bone[4].rotation.y = yAxis;
-					//bone[5].rotation.z = Math.cos(t)*0.8;
+					// bone[1].rotation.x = xAxis;
+					// bone[4].rotation.y = yAxis;
+					// //bone[5].rotation.z = Math.cos(t)*0.8;
 					
-					//braço esquerdo
-					bone[9].rotation.x = yAxis1;
-					bone[9].rotation.z = xAxis1;
+					// //braço esquerdo
+					// bone[9].rotation.x = yAxis1;
+					// bone[9].rotation.z = xAxis1;
 					//bone[11].rotation.z = 0.4+Math.cos(t)*0.4;
 					
 				}
